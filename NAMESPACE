@@ -1,0 +1,21 @@
+import(flexclust)
+import(methods)
+#import(graphics)
+#import(grid)
+#import(lattice)
+import(modeltools)
+
+importFrom(parallel, mclapply, parLapply)
+importFrom(stats, fitted, as.dist)
+importFrom(stats4, summary)
+
+export(
+    "ockc",
+    "bootockc"
+    )
+exportMethods(
+    "show" 
+)
+exportClasses(
+    "ockc" 
+)
