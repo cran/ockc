@@ -1,8 +1,8 @@
 Package: ockc
 Type: Package
 Title: Order Constrained Solutions in k-Means Clustering
-Version: 1.0
-Date: 2016-11-22
+Version: 1.1
+Date: 2022-12-09
 Authors@R: c(person(given = "Sebastian", family = "Krey", role = c("aut", "cre"),
                     email = "sebastian.dev@skrey.net"),
              person(given = "Friedrich", family = "Leisch",
@@ -16,10 +16,10 @@ Depends: flexclust
 Imports: methods, parallel, modeltools, stats4
 Suggests: seriation
 NeedsCompilation: no
-Packaged: 2016-11-22 11:57:59 UTC; skrey
+Packaged: 2022-12-23 13:51:49 UTC; skrey
 Author: Sebastian Krey [aut, cre],
   Friedrich Leisch [aut],
   Sebastian Hoffmeister [ctb]
 Maintainer: Sebastian Krey <sebastian.dev@skrey.net>
 Repository: CRAN
-Date/Publication: 2016-11-22 14:12:38
+Date/Publication: 2022-12-23 14:00:02 UTC

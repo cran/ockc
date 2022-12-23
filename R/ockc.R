@@ -61,13 +61,8 @@ ockc <- function(x, k, family=kccaFamily("kmeans"), order=NULL,
     # }
     # else {
         # function for calculation of cumulated distances
-        triang.j <- function(j, proximity) {
-          di <- upper.tri(proximity, diag=TRUE)
-          result <- diag((t(di[j:n,j:n, drop=FALSE]) 
-                      %*% proximity[j:n,j:n, drop=FALSE]
-                      %*% di[j:n,j:n, drop=FALSE]))/
-                    colSums(di[j:n,j:n, drop=FALSE])
-          # return(c(rep(0, j-1), result))
+        triang.j <- function(j, di, proximity) {
+          result <- diag((t(di) %*% proximity %*% di))/ seq(1, n-j+1)
           return(result)
         }
 
@@ -119,7 +114,8 @@ ockc <- function(x, k, family=kccaFamily("kmeans"), order=NULL,
           return(curRes)
         }
 
-        ssd <- MClapply(1:n, function(x) triang.j(x, proximity=proximity), multicore=multicore)
+        di <- upper.tri(proximity, diag=TRUE)
+        ssd <- MClapply(1:n, function(x) triang.j(x, di=di[x:n,x:n, drop=FALSE], proximity=proximity[x:n, x:n, drop=FALSE]), multicore=multicore)
 
         z <- new("ockc", order = as.integer(order))
 	
